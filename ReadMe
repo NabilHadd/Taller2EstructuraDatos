@@ -4,7 +4,9 @@ Implementación del Algoritmo Minimax con Poda Alfa-Beta en un Juego.
 
 -Intrucciones de ejecución.
 
-    
+    Para compilarlo, hay que poner todos los archivos en la misma carpeta y luego ejecutar el comando: g++ -o juego main.cpp Tablero.cpp
+    ahi se creara el ejecutable y cosa de correrlo nomas.
+    *Agregue un rar como para llegar y descargar los 3 archivos a la vez*
 
 -Explicación del algoritmo.
 
