@@ -1,9 +1,45 @@
 Taller n°2 Estructura de datos.
 Nabil Haddad
 Implementación del Algoritmo Minimax con Poda Alfa-Beta en un Juego.
--Intrucciones de ejecución.
--Explicación del algoritmo.
--Algoritmo MiniMax
-  
--Poda alpha-beta
 
+-Intrucciones de ejecución.
+
+    
+
+-Explicación del algoritmo.
+
+    *Inserta en el codigo*
+
+-Algoritmo MiniMax.
+
+    MiniMax es un algoritmo utilizado en videojuegos de información perfecta, esto quiere decir que ambos jugadores conocen 
+    el estado del videojuego a lo largo de toda la partida, ademas de que lo que uno gana el otro pierde. MiniMax funciona 
+    armando un arbol con las posibles jugadas que existen en cada instancia del juego, luego este arbol se va recorriendo 
+    asignando puntajes a cada camino, los caminos donde el agente o el pc posee mayores oportunidades de ganar, tendran un
+    mayor puntaje, donde el usuario tenga mayores posibilidades de ganar tendra un puntaje menor, mientras que aquellas
+    donde nadie gane, tendra un puntaje neutro. Debido a que es un algoritmo recursivo y dinamico, el agente toma decisiones
+    en cada una de las instancias de juego, esto, naturalmente, provoca que en aquellos turnos donde existan mas posibilidades
+    el agente deba construir arboles mas grandes y por ello se demora mas en tomar una decisión. Es por dicha razón que la poda 
+    es una muy buena opción para optimizar el algoritmo y hacer la jugabilidad mas fluida.
+
+-Poda alpha-beta.
+
+    Debido a que MiniMax funciona a traves de arboles, donde la raiz del arbol es el caso en el que se encuentra en el instante 
+    en que se inicio el algoritmo y las ramas son las posibles jugadas. Pero al fin y al cabo las unicas ramas que nos sirven o
+    nos interesan son aquellas donde Max halla su valor mas alto y Min halla su valor mas bajo, de manera que se introducen al
+    al algoritmo 2 parametros; alpha y beta. Alpha y beta tomaran los valores -infinito y +infinito respectivamente, debido a que
+    debe ser facilmente reemplazable para cada caso.
+    Dichos parametros iran siendo reemplazados por el mejor y peor caso del stack, donde por ejemplo si beta en una rama llega
+    a ser menor que beta, se poda inmediatamente, ya que es una rama basura.
+
+-Arbol (3 primeros turnos).
+    *Adjuntado como imagen*
+
+-Analisis de complejidad temporal antes y despues de aplicar la poda.
+
+    Debido a que el arbol modela la cantidad de movimientos disponibles para cada jugador, este disminuira sustancialmente sus 
+    ramas a medida que el juego transcurre (Esto puede verse en la imagen del arbol). Para hacer una comparación de la 
+    complejidad temporal antes y despues de la implementación de la poda se creo un contador que cuenta los segundos que demoro en
+    pensar el agente. Ademas en ambos casos el primer movimiento lo hizo el agente para que el arbol fuera lo mas grande posible.
+    Para MiniMax sin la poda al agente le toma 77 segundos y fracción en completar el primer movimiento, mientras que al agente 
+    con la poda implementada le toma 6 segundos y fracción. Disminuye mas de 12 veces el tiempo de ejecución en el primer movimiento. 
